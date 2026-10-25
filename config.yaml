@@ -1,0 +1,71 @@
+# ===================================================================
+# Mask R-CNN GPU Webcam Detection - Hyperparameters & Configuration
+# Modify values in this file to customize detection without touching code!
+# ===================================================================
+
+model:
+  # Model architecture: "v2" (ResNet-50 FPN V2, highest accuracy) or "v1" (ResNet-50 FPN V1)
+  version: "v2"
+
+  # Target hardware: "cuda" (for NVIDIA GPU) or "cpu"
+  device: "cuda"
+
+  # Mixed precision (FP16) on GPU for higher FPS and lower memory usage
+  use_fp16: true
+
+  # Run dummy pass on startup to pre-compile CUDA kernels and prevent initial lag
+  warmup: true
+
+detection:
+  # Minimum confidence score for displaying detections (range: 0.05 to 0.99)
+  conf_threshold: 0.50
+
+  # Mask binarization threshold (range: 0.10 to 0.90)
+  mask_threshold: 0.50
+
+  # Filter specific classes to detect (leave empty [] to detect all 80 COCO classes)
+  # Example: ["person", "cell phone", "laptop", "bottle"]
+  target_classes: []
+
+camera:
+  # Webcam index (0 is usually the default webcam, 1 for external USB camera)
+  index: 0
+
+  # Capture resolution width and height
+  width: 1280
+  height: 720
+
+  # Optional video file path (set to null for webcam, or "path/to/video.mp4")
+  video_file: null
+
+  # Buffer size (1 prevents frame lag during real-time streaming)
+  buffer_size: 1
+
+visualization:
+  # Visibility states on startup
+  draw_masks: true
+  draw_boxes: true
+  draw_labels: true
+  show_hud: true
+
+  # Mask transparency / opacity (0.10 = very transparent, 0.90 = almost solid)
+  mask_alpha: 0.45
+
+  # Bounding box line thickness (pixels)
+  box_thickness: 2
+
+  # Mask contour border outline thickness (pixels)
+  contour_thickness: 2
+
+  # Font scale for labels
+  font_scale: 0.68
+
+captures:
+  # Directory where snapshots and video recordings will be saved
+  save_dir: "captures"
+
+  # Video recording frames per second
+  recording_fps: 10.0
+
+  # Video recording codec (mp4v, XVID, etc.)
+  video_codec: "mp4v"

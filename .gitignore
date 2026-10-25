@@ -1,0 +1,39 @@
+# Byte-compiled / optimized files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual Environments
+.venv/
+venv/
+ENV/
+env/
+env.bak/
+venv.bak/
+
+# Runtime captures (snapshots and recordings)
+captures/*
+!captures/.gitkeep
+
+# PyTorch checkpoints and weight caches
+*.pth
+*.pt
+*.bin
+*.onnx
+*.engine
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Log and temporary files
+*.log
+*.tmp
+*.bak
